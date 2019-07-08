@@ -1,12 +1,16 @@
 // A unit test for Recursion fun that require 
-// 12 free standing methods like combinations and arrayRange
-// 2 methods in LinkedList<E>
-// --- get(E) 
-// --- duplicateElement(E)
-// private boolean findExit(int row, int col) the uses recursive back tracking
-// to find the exit in ObstacleCourse.
-import static org.junit.Assert.*;
-
+// Free standing methods like combinations and arrayRange
+// 3 methods in LinkedList<E>
+// -- get(int) 
+// -- removeElement(E)
+// -- duplicateElement(E)
+// -- private boolean findExit(int row, int col) 
+//
+// Programmer: Rick Mercer
+//
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.Test;
 
 public class RecursionFunTest {
@@ -14,7 +18,18 @@ public class RecursionFunTest {
   private RecursionFun rf = new RecursionFun();
 
   @Test
-  public void testCombinations() {
+  public void testCombinations1() {
+    // some simple ones
+    assertEquals(4, rf.combinations(4, 3));
+    assertEquals(3, rf.combinations(3, 2));
+    assertEquals(6, rf.combinations(4, 2));
+    assertEquals(10, rf.combinations(5, 2));
+    // There are 2,598,960 possible poker hands:
+    assertEquals(2598960, rf.combinations(52, 5));
+  }
+
+  @Test
+  public void testCombinations2() {
     // n choices when choosing only 1
     assertEquals(1, rf.combinations(1, 1));
     assertEquals(5, rf.combinations(5, 1));
@@ -24,23 +39,25 @@ public class RecursionFunTest {
     assertEquals(1, rf.combinations(5, 5));
     assertEquals(1, rf.combinations(178, 178));
 
-    // some simple ones
-    assertEquals(4, rf.combinations(4, 3));
-    assertEquals(3, rf.combinations(3, 2));
-    assertEquals(6, rf.combinations(4, 2));
-    assertEquals(10, rf.combinations(5, 2));
-
     // There are 2,598,960 possible poker hands:
     assertEquals(2598960, rf.combinations(52, 5));
   }
 
- 
+
   @Test
-  public void testIntWithCommas() {
+  public void testIntWithCommas1() {
     assertEquals("9", rf.intWithCommas(9));
     assertEquals("123", rf.intWithCommas(123));
     assertEquals("1,234", rf.intWithCommas(1234));
     assertEquals("2,147,483,647", rf.intWithCommas(Integer.MAX_VALUE));
+    assertEquals("1,007", rf.intWithCommas(1007));
+    assertEquals("1,027", rf.intWithCommas(1027));
+    assertEquals("1,000", rf.intWithCommas(1000));
+    assertEquals("1,023,004,567", rf.intWithCommas(1023004567));
+  }
+
+  @Test
+  public void testIntWithCommasWithLeadingZeros() {
     assertEquals("1,007", rf.intWithCommas(1007));
     assertEquals("1,027", rf.intWithCommas(1027));
     assertEquals("1,000", rf.intWithCommas(1000));
