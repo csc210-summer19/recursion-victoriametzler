@@ -2,6 +2,9 @@
  * ObstacleCourse: A type that represents an obstacle course from which to
  * escape. This does not find the shorted path. Because of this, we must always
  * assume there is only one exit.
+ * 
+ * Authors: Rick Mercer and Victoria Metzler
+ * 
  */
 public class ObstacleCourse {
 
@@ -71,11 +74,7 @@ public class ObstacleCourse {
    * col where the exit was found
    */
   private boolean findExit(int row, int col) {
-    // TODO: Complete this method
-    //
-    // Do not forget to set the instance variable foundRow and 
-    // foundCol in this method when the exit is found.
-    //
+
     return !false;
   }
 
